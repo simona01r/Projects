@@ -13,7 +13,7 @@ public class Library {
     static Book b1 = new Book("A", En_Type.POEMS, En_Sample.POWERPOINT, 15);
     static Book b2 = new Book("B", En_Type.THEATRE, En_Sample.PDF, 10);
     static Book b3 = new Book("C", En_Type.DRAMA, En_Sample.WORD, 10);
-    static Book b4 = new Book("D", En_Type.ROMANS, En_Sample.PRINTABLE, 10);
+    static Book b4 = new Book("D", En_Type.ROMANS, En_Sample.PDF, 10);
     static Book b5 = new Book("E", En_Type.COMEDIA, En_Sample.POWERPOINT, 10);
 
     public void addToLibrary() {
@@ -107,15 +107,15 @@ public class Library {
 //    
 //    
     //LIST-->LAMDAAAAAAAAAAAAAAAAAAAAAAA 
-//    public void deleteByPrice() {
-//        ArrayList<Book> temp = new ArrayList<>();
-//        while (true) {
-//
-//            System.out.println("Insert price:");
-//            int pr = sc.nextInt();
-//            sc.nextLine();
-//
-////           1) FORE!!!!
+    public void deleteByPrice() {
+        ArrayList<Book> temp = new ArrayList<>();
+        while (true) {
+
+            System.out.println("Insert price:");
+            int pr = sc.nextInt();
+            sc.nextLine();
+
+//           1) FORE!!!!
 //            for (Book b : myBook) {
 //                if (b.getPrice() == pr) {
 //                    temp.add(b);
@@ -124,23 +124,53 @@ public class Library {
 //            myBook.removeAll(temp);
 //            showBooks();
 //
-////           2) FORI!!!!
-////            for (int i = myBook.size()-1; i >= 0; i--) {
-////                if (myBook.get(i).getPrice() == pr) {
-////                    myBook.remove(i);
-////                }
-////            }
+//           2) FORI!!!!
+//            for (int i = myBook.size() - 1; i >= 0; i--) {
+//                if (myBook.get(i).getPrice() == pr) {
+//                    myBook.remove(i);
+//                }
+//            }
+//            showBooks();
 //
 //
-//            //    A KIND OF LAMDA!!!         
-//            //myBook.stream().filter((book) -> (book.getPrice()==pr)).forEachOrdered((book) -> {
-//            // temp.add(book);
-//            //  });
+////            3)    A KIND OF LAMDA!!!         
+            myBook.stream().filter((book) -> (book.getPrice() == pr)).forEachOrdered((book) -> {
+                temp.add(book);
+            });
+            myBook.removeAll(temp);
+            showBooks();
+//
 //            
-//            //     ANOTHER KIND OF LAMDA!!!       
-//            // myBook.removeIf((s)->s.getPrice()==pr);
-//            // Predicate p;
-//            
+//            4)    ANOTHER KIND OF LAMDA!!!       
+//             myBook.removeIf((s)->s.getPrice()==pr);
+//             Predicate p;
+//             showBooks();
+            System.out.println("Delete by another price? Y/N");
+            String answer = sc.nextLine();
+            if (answer.equalsIgnoreCase("n")) {
+                System.out.println("Thanks!");
+                break;
+            }
+        }
+    }
+//              aceeasi met cu ITERATOR!!!!!!!!!!!!
+//    public void deleteByPrice() {
+//        Book temp = null;
+//        while (true) {
+//
+//            System.out.println("Insert price:");
+//            int pr = sc.nextInt();
+//            sc.nextLine();
+//
+//            Iterator<Book> it = myBook.iterator();
+//            while (it.hasNext()) {
+//                if ((it.next().getPrice()) == pr) {
+//                    it.remove();
+//                    System.out.println("");
+//                }
+//            }
+//            showBooks();
+//
 //            System.out.println("Delete by another price? Y/N");
 //            String answer = sc.nextLine();
 //            if (answer.equalsIgnoreCase("n")) {
@@ -150,33 +180,9 @@ public class Library {
 //        }
 //    }
 
-//              aceeasi met cu ITERATOR!!!!!!!!!!!!
-    public void deleteByPrice() {
-        Book temp = null;
-        while (true) {
-
-            System.out.println("Insert price:");
-            int pr = sc.nextInt();
-            sc.nextLine();
-
-            Iterator<Book> it = myBook.iterator();
-            while (it.hasNext()){
-                    if ((it.next().getPrice())==pr ) {
-                        it.remove();
-                        showBooks();
-                    }
-                }
-
-            System.out.println("Delete by another price? Y/N");
-            String answer = sc.nextLine();
-            if (answer.equalsIgnoreCase("n")) {
-                System.out.println("Thanks!");
-                break;
-            }
-        }
-    }
     public void deleteByType() {
-        Book temp = null;
+//        Book temp = null; STERGE DOAR UN ELEMENT (ultimul) SE FOL DOAR PT ID
+        ArrayList<Book> temp = new ArrayList<>();
 
         while (true) {
             System.out.println("Input a type!");
@@ -184,10 +190,12 @@ public class Library {
 
             for (Book b : myBook) {
                 if (b.getType().equals(En_Type.valueOf(t.toUpperCase()))) {
-                    temp = b;
+//                    temp = b;
+                    temp.add(b);
                 }
             }
-            myBook.remove(temp);
+//            myBook.remove(temp);
+            myBook.removeAll(temp);
             showBooks();
 
             System.out.println("Do you want to choos another type?Y/N");
@@ -201,8 +209,8 @@ public class Library {
 
     public void deleteBy_Type_Sample() {
 
-        Book temp = null;
-
+//        Book temp = null;   STERGE DOAR UN ELEMENT (ultimul) SE FOL DOAR PT ID
+        ArrayList<Book> temp = new ArrayList<>();
         while (true) {
             System.out.println("Insert a price!");
             int n = sc.nextInt();
@@ -213,10 +221,12 @@ public class Library {
 
             for (Book b : myBook) {
                 if (b.getPrice() == n && b.getSample().equals(En_Sample.valueOf(s.toUpperCase()))) {
-                    temp = b;
+//                    temp = b;
+                    temp.add(b);
                 }
             }
-            myBook.remove(temp);
+//            myBook.remove(temp);
+            myBook.removeAll(temp);
             showBooks();
 
             System.out.println("Delete by OTHER price & sample? Y/N");
@@ -226,7 +236,7 @@ public class Library {
                 System.out.println("Tanks!");
                 break;
             }
-
         }
     }
 }
+
