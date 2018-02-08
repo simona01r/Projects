@@ -50,7 +50,6 @@ public class Company {
 //        }
 //    }
     public static void addByKeyboard() {
-
         while (true) {
             Customer c = new Customer();
             System.out.println("Insert a gender = {mrs,mr,miss}");
@@ -58,7 +57,6 @@ public class Company {
 
             System.out.println("Insert a name:");
             c.setName(sc.nextLine());
-
             System.out.println("Insert the age:");
             c.setAge(sc.nextInt());
             sc.nextLine();
@@ -92,7 +90,6 @@ public class Company {
         }
 //        System.out.print(myCust);
     }
-
     public static void deleteById() {
         Customer temp = null;
         while (true) {
@@ -115,8 +112,6 @@ public class Company {
             }
         }
     }
-
-
     public static void deleteBy_Gender_Name() {
 
         ArrayList<Customer> myTemp = new ArrayList<>();
@@ -124,7 +119,6 @@ public class Company {
         while (true) {
             System.out.println("Insert a gender:");
             String titlu = sc.nextLine();
-
             System.out.println("Insert a name:");
             String nume = sc.nextLine();
 
@@ -138,14 +132,12 @@ public class Company {
 
             System.out.println("\nAnother Title/Name? Y/N?");
             String ans = sc.nextLine();
-
             if (ans.equalsIgnoreCase("n")) {
                 System.out.println("Thanks!");
                 break;
             }
         }
     }
-
 //      Case 6 cu Iterator!!!!!
     public static void deleteByGender() {
 
@@ -164,17 +156,14 @@ public class Company {
                     showCust();
                 }
             }
-
             System.out.println("Delete by OTHER gender? Y/N");
             String answ = sc.nextLine();
             if (answ.equalsIgnoreCase("n")) {
                 System.out.println("Tanks!");
                 break;
-
             }
         }
     }
-
     public static void findById() {
         Customer temp = null;
 
@@ -188,19 +177,16 @@ public class Company {
                     temp = c;
                 }
             }
-
             System.out.println(temp);
 
             System.out.println("Another Id? Y/N?");
             String ans = sc.nextLine();
-
             if (ans.equalsIgnoreCase("n")) {
                 System.out.println("Thanks!");
                 break;
             }
         }
     }
-
     public static void findBy_Gender() {
         ArrayList<Customer> myTemp = new ArrayList<>();
 
@@ -213,17 +199,14 @@ public class Company {
                     myTemp.add(c);
                 }
             }
-
             System.out.println(myTemp);
-
+            
             System.out.println("\nAnother Title/Name? Y/N?");
             String ans = sc.nextLine();
-
             if (ans.equalsIgnoreCase("n")) {
                 System.out.println("Thanks!");
                 break;
             }
         }
     }
-
 }
