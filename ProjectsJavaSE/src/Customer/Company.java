@@ -46,7 +46,6 @@ public class Company {
 //            if (ans.equalsIgnoreCase("n")) {
 //                System.out.println("Thanks!");
 //                break;
-//
 //            }
 //        }
 //    }
@@ -81,14 +80,12 @@ public class Company {
 //            myCust.add(new Customer(Gender.valueOf(g.toUpperCase()), n, a));
             System.out.println("Do u want one more item?Y/N?");
             String ans = sc.nextLine();
-
             if (ans.equalsIgnoreCase("n")) {
                 System.out.println("Thanks!");
                 break;
             }
         }
     }
-
     public static void showCust() {
         for (Customer c : myCust) {
             System.out.println(c);
@@ -98,12 +95,10 @@ public class Company {
 
     public static void deleteById() {
         Customer temp = null;
-
         while (true) {
             System.out.println("Insert the id:");
             int id = sc.nextInt();
             sc.nextLine();
-
             for (Customer c : myCust) {
                 if (c.getIdCust() == id) {
                     temp = c;
@@ -111,10 +106,9 @@ public class Company {
             }
             myCust.remove(temp);
             showCust();
-
+            
             System.out.println("Another Id? Y/N?");
             String ans = sc.nextLine();
-
             if (ans.equalsIgnoreCase("n")) {
                 System.out.println("Thanks!");
                 break;
@@ -139,7 +133,6 @@ public class Company {
                     myTemp.add(c);
                 }
             }
-
             myCust.removeAll(myTemp);
             showCust();
 
