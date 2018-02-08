@@ -81,7 +81,7 @@ public class Library {
 
 //    LIST--> cand vreau sa sterg m.m. elem din ArrList!!!
 //      public void deleteByPrice() {
-//        List<Book> temp = null;
+//        ArrayList<Book> temp = new ArrayList<>();
 //        while (true) {
 //
 //            System.out.println("Insert price:");
